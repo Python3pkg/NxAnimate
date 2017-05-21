@@ -13,7 +13,7 @@ def main():
     elif len(sys.argv) == 2 and os.path.isfile(sys.argv[1]):
         config = sys.argv[1]
     else:
-        print('Syntax: {} [config.ini]'.format(sys.argv[0]))
+        print(('Syntax: {} [config.ini]'.format(sys.argv[0])))
         exit(1)
 
     gui_start(

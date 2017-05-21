@@ -61,9 +61,9 @@ def gen_default_config(*, controller):
     return default_config
 
     parser = configparser.ConfigParser()
-    for (section, values) in default_config.items():
+    for (section, values) in list(default_config.items()):
         parser[section] = values
-    return {k: dict(v) for (k,v) in parser.items()}
+    return {k: dict(v) for (k,v) in list(parser.items())}
 
 def start(controller, config=None):
     app = cherrypy.Application(Root(controller))

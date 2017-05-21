@@ -20,12 +20,12 @@ class WebSocketHandler(WebSocket):
             self.controller.remove_gui(self)
             return
         content = method + ' ' + json.dumps(arg)
-        print('Sent message: {}'.format(content))
+        print(('Sent message: {}'.format(content)))
         super().send(content)
 
     def received_message(self, message):
         content = message.data.decode()
-        print('Received message: {}'.format(content))
+        print(('Received message: {}'.format(content)))
         if ' ' in content:
             (method_name, arg) = content.split(' ', 1)
             arg = json.loads(arg)
@@ -108,7 +108,7 @@ class WebSocketHandler(WebSocket):
 
     @expose
     def move_nodes(self, nodes):
-        for (node, pos) in nodes.items():
+        for (node, pos) in list(nodes.items()):
             assert isinstance(pos['x'], (int, float))
             assert isinstance(pos['y'], (int, float))
             if self.controller.graph.has_node(node):

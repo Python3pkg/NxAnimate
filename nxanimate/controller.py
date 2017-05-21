@@ -62,9 +62,9 @@ class Controller:
     def step(self):
         """Run a line of the script in the debugger."""
         print('--')
-        print(list(self.graph.nodes()))
+        print((list(self.graph.nodes())))
         self.debugger.step()
-        print(list(self.graph.nodes()))
+        print((list(self.graph.nodes())))
 
     def continue_(self):
         """Run the script in the debugger, until a breakpoint is met."""
